@@ -1,14 +1,21 @@
 from django.shortcuts import render
-from django.http import HttpResponseRedirect
-from .models import Usuario, Empresa
+from django.contrib.auth.decorators import login_required
 
 from .forms import UsuarioForm
 
 # Create your views here.
 
-def clientes_login(request):
+@login_required
+def clientes_menu(request):
+    #request.session[""]
     context={}
-    return render(request, 'clientes/clientes_login.html', context)
+    return render(request, 'clientes/clientes_menu.html', context)
+
+def clientes_home(request):
+    #request.session[""]
+    context={}
+    return render(request, 'clientes/clientes_home.html', context)
+
 
 def clientes_registro(request):
     context={}
