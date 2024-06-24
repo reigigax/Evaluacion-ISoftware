@@ -16,7 +16,6 @@ def clientes_home(request):
     context={}
     return render(request, 'clientes/clientes_home.html', context)
 
-
 def clientes_registro(request):
     context={}
 

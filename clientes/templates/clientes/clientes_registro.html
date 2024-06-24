@@ -12,10 +12,9 @@
         <form action="" method="POST">
             {% csrf_token %}
             {{ form.as_p }}
-            <input type="submit" name="option" value="Agregar">
+            <button><a href="{% url 'login' %}">Volver al Login</a></button>
+            <button type="submit"><a href="">Siguiente</a></button>
         </form>
-        <br><br>
-        <a href="{% url 'login' %}">Volver al Inicio de Sesion</a>
         <br>
         <div id="idRegistroMensajes">
             {% if mensaje %}

@@ -7,5 +7,9 @@
 </head>
 <body>
     <h1>ESTE ES CLIENTES MENU</h1>
+    <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Log Out</button>
+    </form>
 </body>
 </html>
