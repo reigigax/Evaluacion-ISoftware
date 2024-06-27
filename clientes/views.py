@@ -1,7 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 
-from .forms import UsuarioForm
+from .forms import UsuarioForm, UserCreationForm
 
 # Create your views here.
 
@@ -27,8 +27,24 @@ def clientes_registro(request):
             form=UsuarioForm()
 
             context={'mensaje':"Ok, datos grabados...", "form":form}
-            return render(request, 'clientes/clientes_registro.html', context)
+            return redirect('registro_usuario')
     else:
         form = UsuarioForm()
         context = {"form":form}
         return render(request, 'clientes/clientes_registro.html', context)
+    
+def clientes_registro_usuario(request):
+    if request.method == "POST":
+        form = UserCreationForm(request.POST)
+        if form.is_valid:
+            form.save()
+
+            form=UserCreationForm()
+
+            context={'mensaje':"Ok, datos grabados...", "form":form}
+            return redirect('login')
+
+    else:
+        form = UserCreationForm()
+        context = {"form":form}
+        return render(request, '../templates/registration/register.html', context)

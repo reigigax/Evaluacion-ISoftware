@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% block content %}  
+        {% if messages %}  
+            <ul>   
+                {% for message in messages %}  
+                    <li>{{ message }}</li>  
+                {% endfor %}  
+            </ul>   
+        {% endif %}  
+        
+        <h1>Register Here - JavaTpoint Blog</h1>  
+    
+            <form action="" method="POST">  
+                {% csrf_token %}
+                {{ form.as_table }}
+                <button type="submit">Registrar</button>
+            </form>  
+        </div>  
+    
+    {% endblock content %}
+</body>
+</html>
