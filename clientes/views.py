@@ -48,3 +48,8 @@ def clientes_registro_usuario(request):
         form = UserCreationForm()
         context = {"form":form}
         return render(request, '../templates/registration/register.html', context)
+    
+# base de estilos o pruebas
+def base(request):
+    context = {}
+    return render(request, 'clientes_base.html', context) 
