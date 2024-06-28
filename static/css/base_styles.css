@@ -1,7 +1,12 @@
-body {
-    background-color: #8C6653;
+#bd-color-background {
+    background-color: #efcead !important;
 }
 
-p {
-    color: aquamarine;
+.nav-background {
+    background-color: #8c6653;
+}
+
+.logo-nav {
+    height: 80px;
+    width: 80px;
 }
