@@ -5,17 +5,18 @@ from .forms import UsuarioForm, UserCreationForm
 
 # Create your views here.
 
+# Pagina de Menú - Login* 
 @login_required
 def clientes_menu(request):
-    #request.session[""]
     context={}
     return render(request, 'clientes/clientes_menu.html', context)
 
+# Pagina Principal
 def clientes_home(request):
-    #request.session[""]
     context={}
     return render(request, 'clientes/clientes_home.html', context)
 
+# Pagina de Registro de Datos
 def clientes_registro(request):
     context={}
 
@@ -32,7 +33,8 @@ def clientes_registro(request):
         form = UsuarioForm()
         context = {"form":form}
         return render(request, 'clientes/clientes_registro.html', context)
-    
+
+# Pagina de Registro de Cuentas de Usuario
 def clientes_registro_usuario(request):
     if request.method == "POST":
         form = UserCreationForm(request.POST)
@@ -49,7 +51,7 @@ def clientes_registro_usuario(request):
         context = {"form":form}
         return render(request, '../templates/registration/register.html', context)
     
-# base de estilos o pruebas
+# Pagina Base de estilos o pruebas
 def base(request):
     context = {}
     return render(request, 'clientes_base.html', context) 
