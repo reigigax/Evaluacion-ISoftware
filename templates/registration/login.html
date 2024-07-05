@@ -1,20 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'registration_base.html' %}
+{% load static %}
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Login{% endblock %}</title>
+    <title>{% block title %}El Comilon - Login{% endblock %}</title>
 </head>
-<body>
-    <main>
-        {% block content %}
-        <h2>Log In</h2>
+{% block content %}
+<h2>Log In</h2>
+    <div class="container-fluid">
         <form method="post">
             {% csrf_token %}
             {{ form.as_p }}
-            <button type="submit">Log In</button>
+            <button class="btn nav-button-login" type="submit">Log In</button>
         </form>
-        {% endblock %}
-    </main>
-</body>
-</html>
+    </div>
+{% endblock %}

@@ -1,26 +1,22 @@
+{% extends 'clientes_base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-    <div style=" text-align: center;">
-        <h2>Registro de Usuario</h2>
-        <form action="" method="POST">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button><a href="{% url 'login' %}">Volver al Login</a></button>
-            <button type="submit">Siguiente</button>
-        </form>
-        <br>
-        <div id="idRegistroMensajes">
-            {% if mensaje %}
+{% block content %}
+<div style=" text-align: center;">
+    <h2>Registro de Usuario</h2>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button><a href="{% url 'login' %}">Volver al Login</a></button>
+        <button type="submit">Siguiente</button>
+    </form>
+    <br>
+    <div id="idRegistroMensajes">
+        {% if mensaje %}
             {{mensaje}}
-            {% endif %}
-        </div>
+        {% endif %}
     </div>
-</body>
-</html>
+</div>
+{% endblock %}

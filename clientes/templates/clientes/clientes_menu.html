@@ -1,15 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends '../clientes_base.html' %}
+{% load static %}
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MENU</title>
+    <title>Menú</title>
 </head>
-<body>
-    <h1>ESTE ES CLIENTES MENU</h1>
-    <form action="{% url 'logout' %}" method="post">
-        {% csrf_token %}
-        <button type="submit">Log Out</button>
-    </form>
-</body>
-</html>
+{% block content %}
+    <div> {% include 'components/navbar_loged.html' %} </div>
+    <h1>ESTE ES CLIENTES MENÚ</h1>
+{% endblock %}

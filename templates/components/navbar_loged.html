@@ -1,0 +1,39 @@
+{% load static %}
+<nav class="navbar nav-background navbar-expand-lg">
+    <div class="container-fluid">
+    <!-- Sec Izquierdo Nav -->
+    <a class="navbar-brand" href="#">
+        <span class="font-nav">
+            <img src="{% static 'images/logo-el-comilon.png' %}" alt="Logotipo" class="logo-nav">
+            El Comilon
+        </span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link active nav-font" aria-current="page" href="{% url 'home' %}">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active nav-font" aria-current="page" href="{% url 'menu' %}">Menú</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link nav-font disabled" aria-current="page" target="_blank">Sobre Nosotros</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link nav-font disabled" aria-current="page" target="_blank">Pide Online</a>
+            </li>
+        </ul>
+    </div>
+    <!-- Sec Derecho Nav -->
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <form action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button class="btn nav-button" type="button">{{ user.username }}</button>
+            <button class="btn nav-button-login" type="submit">Cerrar Sesión</button>
+        </form>
+    </div>
+</div>
+</nav>

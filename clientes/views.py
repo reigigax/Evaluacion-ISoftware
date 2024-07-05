@@ -14,7 +14,7 @@ def clientes_menu(request):
 # Pagina Principal
 def clientes_home(request):
     context={}
-    return render(request, 'clientes/clientes_home.html', context)
+    return render(request, 'clientes_home.html', context)
 
 # Pagina de Registro de Datos
 def clientes_registro(request):
