@@ -1,20 +1,29 @@
 {% extends 'registration_base.html' %}
+{% load static %}
 {% block content %}
-
+<head>
+    <link rel="stylesheet" href="{% static 'css/clientes_home.css' %}">
     <title>{% block title %}El Comilon - Inicio{% endblock %}</title>
-
-    {% if user.is_authenticated %}
-        <div></div>
-        <h1>ESTE ES CLIENTES HOME</h1>
-        Hi {{ user.username }}!
-        <form action="{% url 'logout' %}" method="post">
-            {% csrf_token %}
-            <button type="submit">Log Out</button>
-        </form>
-    {% else %}
-        <div>{% include 'components/navbar_notloged.html' %}</div>
-        <h1>ESTE ES CLIENTES HOME</h1>
-        <p>You are not logged in</p>
-    {% endif %}
-
+</head>
+    <div>{% include 'components/navbar_loged.html' %}</div>
+    <div class="container">
+        <br>
+        <div class="mb-3">
+            <div class="row g-0">
+                <div class="col-md-3">
+                    <img src="{% static 'images/Inicio1.jpg' %}" class="d-block w-100 img-fluid" alt="">
+                </div>
+                <div class="col-md-9">
+                    <div class="container font-justify">
+                        <div class="card-body">
+                        <h1 class="font-title fs-2 lh-lg">¿Que Ofrecemos?</h1>
+                        <p class="card-text fs-4 lh-base">El restaurante El Comilón es conocido por ofrecer una experiencia culinaria excepcional, donde los sabores auténticos se fusionan con la creatividad gastronómica. Situado en el corazón de la ciudad, nuestro equipo de chefs expertos prepara platos que deleitan los sentidos y satisfacen los paladares más exigentes.</p>
+                        <p class="fs-4 lh-base">Con ingredientes frescos y una pasión por la cocina, en El Comilón cada visita se convierte en una celebración de la buena comida y la hospitalidad.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+    
+    
 {% endblock %}

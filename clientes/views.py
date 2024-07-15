@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate, login
 
 from .forms import UsuarioForm, UserCreationForm
 
@@ -40,12 +41,14 @@ def clientes_registro_usuario(request):
         form = UserCreationForm(request.POST)
         if form.is_valid:
             form.save()
+            user = authenticate(username=form.cleaned_data['username'], password=form.cleaned_data['password1'])
+
+            login(request, user)
 
             form=UserCreationForm()
-
             context={'mensaje':"Ok, datos grabados...", "form":form}
-            return redirect('login')
 
+            return redirect('menu')
     else:
         form = UserCreationForm()
         context = {"form":form}

@@ -33,11 +33,9 @@
     color: #e3d7bf !important;
 }
 
-
 .disabled {
-        cursor: not-allowed;
-        pointer-events: none;
-
+    cursor: not-allowed;
+    pointer-events: none;
     opacity: 60%;
 }
 

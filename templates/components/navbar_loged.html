@@ -29,11 +29,21 @@
     </div>
     <!-- Sec Derecho Nav -->
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-        <form action="{% url 'logout' %}">
-            {% csrf_token %}
-            <button class="btn nav-button" type="button">{{ user.username }}</button>
-            <button class="btn nav-button-login" type="submit">Cerrar Sesión</button>
-        </form>
+        {% if user.is_authenticated %}
+        
+            <form action="{% url 'logout' %}">
+                {% csrf_token %}
+                <button class="btn nav-button" type="button">{{ user.username }}</button>
+                <button class="btn nav-button-login" type="submit">Cerrar Sesión</button>
+            </form>
+        {% else %}
+            <a href="{% url 'login' %}">
+                <button class="btn nav-button" type="button">Acceder</button>
+            </a>
+            <a href="{% url 'registro' %}">
+                <button class="btn nav-button-login" type="button">Registrarse</button>
+            </a>
+        {% endif %}
     </div>
 </div>
 </nav>

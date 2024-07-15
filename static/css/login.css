@@ -1,0 +1,19 @@
+.mrg-form {
+    margin-top: 4.5rem;
+    margin-bottom: 4.5rem;
+}
+
+.background-form {
+    background-color: rgba(255, 255, 255, 0.482);
+    border-radius: 2%;
+}
+
+.background-img {
+    max-height: 900px;
+    max-width: 1080px;
+    border-radius: 2%;
+}
+
+p, li {
+    display: none;
+}

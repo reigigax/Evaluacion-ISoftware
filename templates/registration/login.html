@@ -1,15 +1,51 @@
 {% extends 'registration_base.html' %}
 {% load static %}
+{% block content %} 
+
 <head>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
     <title>{% block title %}El Comilon - Login{% endblock %}</title>
 </head>
-{% block content %}
-<h2>Log In</h2>
-    <div class="container-fluid">
-        <form method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button class="btn nav-button-login" type="submit">Log In</button>
-        </form>
+<div class="container">
+    <img src="{% static 'images/LogIn.jpg' %}" alt="" class="background-img d-block w-100 img-fluid position-absolute top-50 start-50 translate-middle">
+    <div class="mb-3 position-absolute top-50 start-50 translate-middle background-form">
+        <div class="row g-0 mrg-form">
+            <div class="container col-md-8 d-flex justify-content-center">
+                <div class="col-12 has-validation">
+                    <div class="">
+                        <h2>Inicio de Sesion</h2>
+                    </div>
+                    <form method="post" class="row needs-validation grid gap-3" novalidate>
+                        {% csrf_token %}
+                        <div class="col-12 grid gap-3">
+                            <input type="text" class="form-control" name="username" id="id_username" placeholder="Nombre de Usuario" autocomplete="username" required>
+                            {% if form.username.errors %}
+                                <span style="color: red;">El Campo Usuario es Requerido *</span>
+                            {% endif %}
+                        </div>
+                        <div class="col-12 ">
+                            <input type="password" class="form-control" name="password" id="id_password" placeholder="Contraseña" autocomplete="current-password" required>
+                            {% if form.password.errors %}
+                                <span style="color: red;">El Campo Contraseña es Requerido *</span>
+                            {% endif %}
+                        </div>
+                        <div class="d-grid gap-2 col-12 mx-auto">
+                            <button class="btn nav-button-login" type="submit">Iniciar Sesión</button>
+                            {% if form.error %}
+                                <span>Usuario y o Contraseña Incorrecto</span>
+                            {% endif %}
+                        </div>    
+                            <a href="{% url 'home' %}" class="d-grid link-offset-2 link-underline link-underline-opacity-0">
+                                <button class="btn nav-button" type="button">Volver al Inicio</button>
+                            </a>
+                        </div>
+                    </form>
+                </div>        
+            </div>
+        </div>
     </div>
+</div>
+<div class="real-form">
+    {{form.as_p}}
+</div>
 {% endblock %}

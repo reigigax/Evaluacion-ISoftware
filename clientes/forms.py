@@ -23,16 +23,16 @@ class UsuarioForm(ModelForm):
         
 class UserCreationForm(forms.ModelForm):
     error_messages = {
-        'password_mismatch': _("The two password fields didn't match."),
+        'password_mismatch': _("Las contraseñas ingresadas no coinciden"),
     }
     password1 = forms.CharField(
-        label=_("Password"),
+        label=_("Contraseña"),
         widget=forms.PasswordInput
     )
     password2 = forms.CharField(
-        label=_("Password confirmation"),
+        label=_("Confirmacion de Contraseña"),
         widget=forms.PasswordInput,
-        help_text=_("Enter the same password as above, for verification.")
+        help_text=_("Repite la Contraseña Anteriormente Ingresada.")
     )
 
     class Meta:
