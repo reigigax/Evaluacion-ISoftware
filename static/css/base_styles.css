@@ -6,7 +6,35 @@
     font-family: "Ubuntu", sans-serif;
     font-weight: 500;
     font-style: normal;
-} 
+}
+
+.title-administracion {
+    font-family: "Playwrite IT Moderna", cursive;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.7rem;
+    color: rgb(27, 27, 27);
+    background-color: #8c6653bc;
+    border-radius: 1rem;
+    text-align: center;
+    font-size: 3rem;
+}
+
+th {
+    background-color: #8c6653 !important;
+    color: white !important;
+}
+
+td {
+    background-color: #D6D9D9 !important;
+    color: rgb(27, 27, 27) !important;
+    font-size: 0.8rem;
+}
+
+.item-no-editable {
+    display: none;
+}
 
 .font-nav {
     font-family: "Playwrite IT Moderna", cursive;

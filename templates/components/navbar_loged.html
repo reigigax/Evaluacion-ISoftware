@@ -25,6 +25,13 @@
             <li class="nav-item">
                 <a class="nav-link nav-font disabled" aria-current="page" target="_blank">Pide Online</a>
             </li>
+            {% if user.is_authenticated %}
+                {% if user.is_staff == 1 %}
+                    <li class="nav-item">
+                        <a class="nav-link active nav-font" aria-current="page" href="{% url 'crud' %}">Usuarios</a>
+                    </li>
+                {% endif %}
+            {% endif %}
         </ul>
     </div>
     <!-- Sec Derecho Nav -->

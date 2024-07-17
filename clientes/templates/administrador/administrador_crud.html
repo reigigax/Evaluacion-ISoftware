@@ -1,0 +1,90 @@
+{% extends '../clientes_base.html' %}
+{% load static %}
+<head>
+    <title>{% block title %}El Comilon - Administracion{% endblock %}</title>
+</head>
+{% block content %}
+    <div> {% include 'components/navbar_loged.html' %} </div>
+    <br>
+    <div class="container title-administracion">
+        <span>Usuarios Activos</span>
+    </div>
+    <br>
+    <div class="container">
+        <table>
+        {% if usuarios %}
+            <table class="table-content table table-hover table-striped-columns">
+                <thead>
+                    <th scope="col"><h6>Rut</h6></th>
+                    <th scope="col"><h6>Nombre</h6></th>
+                    <th scope="col"><h6>Apellido Paterno</h6></th>
+                    <th scope="col"><h6>Apellido Materno</h6></th>
+                    <th scope="col"><h6>Fecha Nacimiento</h6></th>
+                    <th scope="col"><h6>Empresa Asociada</h6></th>
+                    <th scope="col"><h6>Correo</h6></th>
+                    <th scope="col"><h6>Telefono</h6></th>
+                    <th scope="col"><h6>Dirección</h6></th>
+                    <th scope="col"><h6>Estado del Usuario</h6></th>
+                    <th scope="col"><h6>Acciones</h6></th>
+                    <th scope="col"><a href="{% url 'administrador_registro_usuario' %}"><button class="btn btn-success">Agregar Usuario</button></a></th>
+                </tr>
+            </thead>
+            {% for user in usuarios %}
+                <tr class="table-content">
+                {% if user.activo == 1 %}
+                    <td>{{ user.rut }}</td>
+                    <td>{{ user.nombre }}</td>
+                    <td>{{ user.apellido_paterno }}</td>
+                    <td>{{ user.apellido_materno }}</td>
+                    <td>{{ user.fecha_nacimiento }}</td>
+                    <td>{{ user.id_empresa_asociada }}</td>
+                    <td>{{ user.correo }}</td>
+                    <td>{{ user.telefono }}</td>
+                    <td>{{ user.direccion }}</td>
+                    <td>Activa</td>
+                    <td><a href="{% url 'administrador_modificacion_usuario' user_rut=user.rut %}"><button class="btn btn-secondary">Modificar</button></a></td>
+                    <td><a href="{% url 'administrador_eliminacion_usaurio' user_rut=user.rut %}"><button class="btn btn-danger">Eliminar</button></a></td>
+                {% endif %}      
+                </tr>
+                {% endfor %}      
+            {% endif %}      
+        </table>
+    </div>
+    <div class="container title-administracion">
+        <span>Cuentas de Usuarios</span>
+    </div>
+    <br>
+    <div class="container">
+        <table>
+            {% if cuentas_usuarios %}
+                <table class="table-content table table-hover table-striped-columns">
+                    <thead class="nav-button">
+                        <th scope="col"><h6>ID Cuenta</h6></th>
+                        <th scope="col"><h6>Nombre de Cuenta</h6></th>
+                        <th scope="col"><h6>Correo</h6></th>
+                        <th scope="col"><h6>Estado de Cuenta</h6></th>
+                        <th scope="col"><h6>Acciones</h6></th>
+                        <th scope="col"><a href="{% url 'administrador_agregar_cuenta' %}"><button class="btn btn-success">Agregar Usuario</button></a></th>
+                    </tr>
+                </thead>
+                {% for account_user in cuentas_usuarios %}
+                    {% if user.username != account_user.username %}
+                    <tr class="table-content">
+                        <td>{{ account_user.id }}</td>
+                        <td>{{ account_user.username }}</td>
+                        <td>{{ account_user.email }}</td>
+                        {% if account_user.is_active == True %}
+                        <td>Activa</td>
+                        {% else %}
+                        <td>Deshabilitada</td>
+                        {% endif %}
+                        <td><a href="{% url 'modificar_cuenta_usuario' user_id=account_user.id %}"><button class="btn btn-secondary">Modificar</button></a></td>
+                        <td><a href="{% url 'eliminar_cuenta_usuario' user_id=account_user.id %}"><button class="btn btn-danger">Eliminar</button></a></td>
+                    </tr>
+                    {% endif %}      
+                {% endfor %}      
+            {% endif %}      
+        </table>
+    </div>
+
+{% endblock %}

@@ -20,6 +20,19 @@ class UsuarioForm(ModelForm):
                   'direccion':'Direccion',
                   'activo':'Activo',
                  }
+        widgets = {
+            'rut': forms.TextInput(attrs={'class': 'form-control'}),
+            'nombre': forms.TextInput(attrs={'class': 'form-control'}),
+            'apellido_paterno': forms.TextInput(attrs={'class': 'form-control'}),
+            'apellido_materno': forms.TextInput(attrs={'class': 'form-control'}),
+            'fecha_nacimiento': forms.TextInput(attrs={'class': 'form-control'}),
+            'id_empresa_asociada': forms.Select(attrs={'class': 'form-select'}),
+            'correo': forms.TextInput(attrs={'class': 'form-control'}),
+            'telefono': forms.NumberInput(attrs={'class': 'form-control'}),
+            'direccion': forms.TextInput(attrs={'class': 'form-control'}),
+            'activo': forms.NumberInput(attrs={'class': 'form-control'}),
+        }
+
         
 class UserCreationForm(forms.ModelForm):
     error_messages = {

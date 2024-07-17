@@ -2,16 +2,8 @@
 <head>
     <title>Document</title>
 </head>
-    {% block content %}  
-        {% if messages %}
-            <ul>   
-                {% for message in messages %}  
-                    <li>{{ message }}</li>  
-                {% endfor %}  
-            </ul>   
-        {% endif %}  
-        
-        <h1>Register Here - JavaTpoint Blog</h1>  
+{% block content %}
+        <h1>Registro de Cuenta</h1>  
     
             <form action="" method="POST">  
                 {% csrf_token %}
@@ -24,4 +16,4 @@
             </form>  
         </div>  
     
-    {% endblock content %}
+{% endblock content %}

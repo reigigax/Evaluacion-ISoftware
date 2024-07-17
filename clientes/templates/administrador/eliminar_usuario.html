@@ -1,0 +1,15 @@
+{% extends '../clientes_base.html' %}
+{% load static %}
+
+{% block content %}
+<head>
+    <title>Confirmar eliminación de usuario</title>
+</head>
+    <h2>Confirmar eliminación de usuario: {{ usuario.rut }}</h2>
+    
+    <form method="post">
+        {% csrf_token %}
+        <p>¿Estás seguro de que deseas eliminar a {{ usuario.nombre }} {{ usuario.apellido_paterno }} {{ usuario.apellido_materno }}?</p>
+        <input type="submit" value="Eliminar">
+    </form>
+{% endblock %}

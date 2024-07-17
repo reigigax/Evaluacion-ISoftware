@@ -1,0 +1,19 @@
+{% extends '../clientes_base.html' %}
+{% load static %}
+
+{% block content %}
+<title>Modificar usuario</title>
+</head>
+    <h2>Modificar usuario: {{ usuario.username }}</h2>
+    
+    <form method="post">
+        {% csrf_token %}
+        <label for="username">Nombre de usuario:</label>
+        <input type="text" id="username" name="username" value="{{ usuario.username }}" required>
+        <br><br>
+        <label for="email">Correo electrónico:</label>
+        <input type="email" id="email" name="email" value="{{ usuario.email }}" required>
+        <br><br>
+        <input type="submit" value="Guardar cambios">
+    </form>
+{% endblock %}

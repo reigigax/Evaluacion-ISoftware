@@ -1,18 +1,21 @@
-{% extends 'clientes_base.html' %}
+{% extends '../clientes_base.html' %}
 {% load static %}
-<head>
-    <link rel="stylesheet" href="{% static 'css/registro_usuario.css' %}">
-    <title>{% block title %}El Comilon - Registro Usuario{% endblock %}</title>
-</head>
+
 {% block content %}
-    <div class="container">
-        <div class="container col-md-8 d-flex justify-content-center">
+<head>
+    <title>Modificar usuario</title>
+</head>
+<h2>Modificar Usuario: {{ usuario.rut }}</h2>
+
+<div class="container">
+    <div class="container col-md-8 d-flex justify-content-center">
         <form action="" class="row needs-validation" method="POST">
-            <div class="col-12 title-administracion">
-                <h2>Registro de Usuario</h2>
+            <div class="col-12 title-administracion item-no-editable">
+                <h2 class="item-no-editable">Registro de Usuario</h2>
             </div>
+
             {% csrf_token %}
-            <div class="col-md-6">
+            <div class="col-md-6 item-no-editable">
                 <label for="id_rut" class="form-label">Rut</label>
                 {{ form.rut }}
             </div>
@@ -55,7 +58,7 @@
                 <label for="id_direccion" class="form-label">direccion</label>
                 {{ form.direccion }}
             </div>
-            <div class="col-md-6" class="item-no-editable">
+            <div class="col-md-6">
                 <label for="id_activo" class="form-label">Activo</label>
                 {{ form.activo }}
             </div>
@@ -65,5 +68,5 @@
             </div>
         </form>
     </div>
-</div> 
+</div>
 {% endblock %}

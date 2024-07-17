@@ -25,12 +25,18 @@
             <li class="nav-item">
                 <a class="nav-link nav-font disabled" aria-current="page" target="_blank">Pide Online</a>
             </li>
+            {% if user.is_authenticated %}
+                {% if user.is_staff == 1 %}
+                    <li class="nav-item">
+                        <a class="nav-link nav-font disabled" aria-current="page" href="{% url 'crud' %}">Usuarios</a>
+                    </li>
+                {% endif %}
+            {% endif %}
         </ul>
     </div>
     <!-- Sec Derecho Nav -->
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
         {% if user.is_authenticated %}
-        
             <form action="{% url 'logout' %}">
                 {% csrf_token %}
                 <button class="btn nav-button" type="button">{{ user.username }}</button>
