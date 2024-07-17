@@ -3,17 +3,20 @@
     <title>Document</title>
 </head>
 {% block content %}
-        <h1>Registro de Cuenta</h1>  
-    
-            <form action="" method="POST">  
-                {% csrf_token %}
+<div class="container title-administracion">
+    <span>Registro de Cuenta</span>      
+</div>
+    <div class="container">
 
-                <input type="text" name="username" id="" placeholder="Nombre de Usuario"><br>
-                <input type="password" name="password1" id="" placeholder="Nueva Contraseña"><br>
-                <input type="password" name="password2" id="" placeholder="Repite tu Contraseña"><br>
+                <form action="" method="POST">  
+                    {% csrf_token %}
 
-                <button type="submit">Registrar</button>
-            </form>  
-        </div>  
+                    <input type="text" name="username" id="" placeholder="Nombre de Usuario"><br>
+                    <input type="password" name="password1" id="" placeholder="Nueva Contraseña"><br>
+                    <input type="password" name="password2" id="" placeholder="Repite tu Contraseña"><br>
+
+                    <button type="submit">Registrar</button>
+                </form>        
+</div>
     
 {% endblock content %}

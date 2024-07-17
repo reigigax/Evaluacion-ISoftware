@@ -12,7 +12,6 @@
     <br>
     <div class="container">
         <table>
-        {% if usuarios %}
             <table class="table-content table table-hover table-striped-columns">
                 <thead>
                     <th scope="col"><h6>Rut</h6></th>
@@ -29,6 +28,7 @@
                     <th scope="col"><a href="{% url 'administrador_registro_usuario' %}"><button class="btn btn-success">Agregar Usuario</button></a></th>
                 </tr>
             </thead>
+            {% if usuarios %}
             {% for user in usuarios %}
                 <tr class="table-content">
                 {% if user.activo == 1 %}
@@ -56,7 +56,6 @@
     <br>
     <div class="container">
         <table>
-            {% if cuentas_usuarios %}
                 <table class="table-content table table-hover table-striped-columns">
                     <thead class="nav-button">
                         <th scope="col"><h6>ID Cuenta</h6></th>
@@ -67,6 +66,7 @@
                         <th scope="col"><a href="{% url 'administrador_agregar_cuenta' %}"><button class="btn btn-success">Agregar Usuario</button></a></th>
                     </tr>
                 </thead>
+            {% if cuentas_usuarios %}
                 {% for account_user in cuentas_usuarios %}
                     {% if user.username != account_user.username %}
                     <tr class="table-content">
